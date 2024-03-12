@@ -13,8 +13,12 @@ function App() {
 				<div className="navbar">
 					<Link to="/"> Home Page </Link>
 					<Link to="/createapost"> Create a Post </Link>
-					<Link to="/login"> Login </Link>
-					<Link to="/registration"> Registration </Link>
+					{!localStorage.getItem("accessToken") && (
+						<>
+							<Link to="/login"> Login </Link>
+							<Link to="/registration"> Registration </Link>
+						</>
+					)}
 				</div>
 				<Routes>
 					<Route path="/" exact element={<Home />} />
